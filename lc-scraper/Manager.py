@@ -43,7 +43,7 @@ class Manager:
             print("TagScraper failed.")
             return
         tags = self.parseTags(tags)
-        for i in range(1):
+        for i in range(len(tags)):
             url = "https://leetcode.com/tag/" + tags[i] + '/'
             print("Scraping problems for tag: {}".format(tags[i]))
             problems = self.problemScraper.get(driver, MAX_WAIT_TIME, url)
