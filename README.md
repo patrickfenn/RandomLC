@@ -23,4 +23,4 @@
    2. webdriver-manager
 3. Ensure you have a chrome binary installed and accessible by path.
 
-It takes roughly 10 minutes to scrape every problem. This is because selenium must wait for the problem to load on each tag problem page. 
+It takes roughly 10 minutes to scrape every problem. This is because selenium must wait for the problem table to load on each tag problem page. 
