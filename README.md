@@ -21,6 +21,22 @@
 2. Install with pip:
    1. selenium
    2. webdriver-manager
+   3. requests
 3. Ensure you have a chrome binary installed and accessible by path.
+4. Run with: ```python3 Manager.py```
 
 It takes roughly 10 minutes to scrape every problem. This is because selenium must wait for the problem table to load on each tag problem page. 
+
+\
+Example output:
+```
+Starting.
+Obtaining tags...
+Scraping problems for tag: array
+Job completed. 1/71 -> Total problems scraped: 1262
+Scraping problems for tag: string
+Job completed. 2/71 -> Total problems scraped: 1708
+Scraping problems for tag: hash-table
+Job completed. 3/71 -> Total problems scraped: 1765
+Scraping problems for tag: dynamic-programming
+```
