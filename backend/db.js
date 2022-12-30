@@ -195,10 +195,12 @@ class DB {
 
     createTables(){
         var table_names = ["problems_unique", "problems_tags"];
-        var query = "";
+        var query;
         for(var i = 0; i < table_names.length; i++){
-            query += "DROP TABLE IF EXISTS " + table_names[i] + " ";
-            query += "CREATE TABLE IF NOT EXISTS " + table_names[i] + " ";
+            query = "DROP TABLE IF EXISTS " + table_names[i];
+            this.conn.query(query);
+            query = "CREATE TABLE IF NOT EXISTS " + table_names[i];
+            this.conn.query(query);
         }
         console.log(query);
         this.conn.query(query);
