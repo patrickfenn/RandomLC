@@ -1,0 +1,125 @@
+div.App{
+  display:flex;
+  flex-direction:column;
+  margin: auto;
+  align-items: 'column';
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  overflow-y: auto;
+}
+.Image {
+  height: 200px;
+  width: 200px;
+}
+div.TitleWrapper{
+  display:flex;
+  flex-direction:row;
+  margin: auto;
+  align-items: 'center';
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+}
+div.ConfigureProblemWrapper{
+  display:flex;
+  flex-direction:row;
+  margin: auto;
+  align-items: 'center';
+  justify-content: center;
+  align-items: center;
+  height: 40vh;  
+  padding: 20px 20px;
+  overflow-y: auto;
+}
+div.Configure {
+  border: 3px solid #000000;
+  overflow-y: auto;
+}
+div.Difficulty {
+  width: 500px;
+  margin: auto;
+  padding: 10px 10px;
+}
+div.Acceptance {
+  width: 500px;
+  margin: auto;
+  padding: 10px 10px;
+}
+div.Topics {
+  width: 500px;
+  margin: auto;
+  padding: 10px 10px;
+}
+div.CheckboxWrapper {
+  padding: 10px 10px;
+}
+div.ButtonWrapper {
+  text-align: center;
+  margin: auto;
+  padding: 20px 20px;
+  width: 500px;
+}
+div.ButtonRandomLCWrapper {
+  text-align: center;
+  margin: auto;
+  border: none;
+  padding: 20px 0px;
+}
+div.ButtonRandomLC {
+  margin: center;
+}
+div.Space {
+  width: 30px;
+}
+div.Problem {
+  border: 3px solid #000000;
+  display:block;
+  overflow-y: auto;
+}
+.textDiffAccWrapper{
+  display:flex;
+  margin: auto;
+  align-items: 'center';
+  padding: 20px 20px;
+}
+div.textTitleWrapper{
+  padding: 10px 10px;
+}
+.textTitle {
+  height: 25px;
+  width: 500px;
+  text-align: center;
+  pointer-events: none;
+  
+}
+div.textDiffAccWrapper{
+  padding: 10px 10px;
+}
+div.textDifficultyWrapper{
+  padding: 10px 0px;
+}
+.textDifficulty {
+  height: 25px;
+  width: 250px;
+  text-align: center;
+  pointer-events: none;
+}
+div.textAcceptanceWrapper{
+  padding: 10px 0px;
+}
+.textAcceptance {
+  height: 25px;
+  width: 250px;
+  text-align: center;
+  pointer-events: none;
+}
+div.ButtonLaunchWrapper {
+  text-align: center;
+  margin: auto;
+  border: none;
+  padding: 20px 0px;
+}
+div.ButtonLaunch {
+  margin: center;
+}
