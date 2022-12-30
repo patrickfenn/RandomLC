@@ -13,6 +13,7 @@ class DB {
         this.conn.connect(error => {
             if (error) throw error;
             console.log("Populating database with data...");
+            this.createTables();
             this.populateUnique();
             this.populateTag();
             this.populatePremium();
