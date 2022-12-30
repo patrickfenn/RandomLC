@@ -194,12 +194,17 @@ class DB {
     }
 
     createTables(){
-        var table_names = ["problems_unique", "problems_tags"];
+        //Tables and their schemas.
+        var tables = [
+            ["problems_unique", "(title VARCHAR(255))"], ["problems_tags", "(title VARCHAR(255), acceptance VARCHAR(255), difficulty VARCHAR(255), link VARCHAR(255))"],
+            ["problems_premium", "(title VARCHAR(255), acceptance VARCHAR(255), difficulty VARCHAR(255), link VARCHAR(255), tag VARCHAR(255))"]
+        ];
         var query;
         for(var i = 0; i < table_names.length; i++){
-            query = "DROP TABLE IF EXISTS " + table_names[i];
+            var [tableName, schema] = tables[i];
+            query = "DROP TABLE IF EXISTS " + tableName;
             this.conn.query(query);
-            query = "CREATE TABLE IF NOT EXISTS " + table_names[i];
+            query = "CREATE TABLE IF NOT EXISTS " + tableName + schema;
             this.conn.query(query);
         }
         console.log(query);
