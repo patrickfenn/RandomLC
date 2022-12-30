@@ -3,9 +3,9 @@ from TagScraper import TagScraper
 from ProblemScraper import ProblemScraper
 from PremiumScraper import PremiumScraper
 from selenium import webdriver
-from webdriver_manager.firefox import GeckoDriverManager
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 #Wait time in sec for headless browser to wait for page to load.
 #Increasing too low will result in more failures.
@@ -32,11 +32,11 @@ class Manager:
         output_all_uniques = []
         output_tags = {}
         seen = set()
-        options = FirefoxOptions()
+        options = ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()),options=options)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
         print("Obtaining tags...")
         tags = self.tagScraper.get(driver)
         if tags == []:
