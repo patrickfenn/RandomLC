@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import tags from './tags.txt';
 import DocumentMeta from 'react-document-meta';
 
+
 class App extends Component {
   componentDidMount(){
     document.title = "Random LC";
@@ -55,7 +56,7 @@ class App extends Component {
         "premium": this.state.premium
       }
     };
-    fetch('http://137.184.34.153:3000/problem', requestOptions)
+    fetch('https://cors-anywhere.herokuapp.com/http://137.184.34.153:3001/problem', requestOptions)
         .then(response => response.json())
         .then(data => {
           console.log(data)

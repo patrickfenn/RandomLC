@@ -204,7 +204,7 @@ class DB {
             var [tableName, schema] = tables[i];
             query = "DROP TABLE IF EXISTS " + tableName;
             this.conn.query(query);
-            query = "CREATE TABLE IF NOT EXISTS " + tableName + schema;
+            query = "CREATE TABLE IF NOT EXISTS " + tableName + " " + schema;
             this.conn.query(query);
         }
         console.log(query);
