@@ -5,9 +5,11 @@ const DB = require('./db.js')
 let myDB = new DB()
 const cors = require('cors');
 
+
 app.use(cors({
-    origin: 'http://leetcoderandom.com'
+  origin: '*'
 }));
+
 app.get('/problem', async (req, res) => {
   difficulties = req.headers['difficulties']
   acceptance = req.headers['acceptance']
@@ -18,7 +20,6 @@ app.get('/problem', async (req, res) => {
   if (topics.length > 0) {
     response = await myDB.getRandomTag(difficulties,acceptance,topics,premium);
   }
-
   else {
     response = await myDB.getRandomUnique(difficulties,acceptance,premium);
   }

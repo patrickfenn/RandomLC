@@ -12,12 +12,18 @@ class DB {
         });
         this.conn.connect(error => {
             if (error) throw error;
-            console.log("Populating database with data...");
+            console.log("Creating tables...");
             this.createTables();
+            console.log("Populating unique problems...");
             this.populateUnique();
+            console.log("Populating tagged problems...");
             this.populateTag();
+            console.log("Populating premium problems...");
             this.populatePremium();
+            console.log("Finished populating data.");
         });
+
+        
 
         //let uniqueResult = this.getRandomUnique(["Easy"],["30.0%"])
         //let tagResult = this.getRandomTag(["Hard"], ["50.0%"],["Array"]);
@@ -124,8 +130,14 @@ class DB {
         else if(acceptance.length == 0) {
             query = "SELECT * FROM problems_unique WHERE difficulty in (" + this.buildString(difficulty) + ")";
         }
-        if (premium == false) {
-            query += " AND title not in (SELECT * from problems_premium)";
+        if (premium == "false") {
+            if (difficulty.length == 0 && acceptance.length == 0){
+                query += " WHERE "
+            }
+            else{
+                query += " AND "
+            }
+            query += "title not in (SELECT * from problems_premium)";
         }
         if (query.length > 0) {
             query += " ORDER BY RAND() LIMIT 1";
@@ -161,8 +173,14 @@ class DB {
         else if(acceptance.length == 0) {
             query = "SELECT * FROM problems_tags WHERE difficulty in (" + this.buildString(difficulty) + ")";
         }
-        if (premium == false) {
-            query += " AND title not in (SELECT * from problems_premium)";
+        if (premium == "false") {
+            if (difficulty.length == 0 && acceptance.length == 0){
+                query += " WHERE "
+            }
+            else{
+                query += " AND "
+            }
+            query += "title not in (SELECT * from problems_premium)";
         }
         if(tag.length > 0){
             if (difficulty.length > 0 || acceptance.length > 0) {
@@ -196,19 +214,18 @@ class DB {
     createTables(){
         //Tables and their schemas.
         var tables = [
-            ["problems_unique", "(title VARCHAR(255))"], ["problems_tags", "(title VARCHAR(255), acceptance VARCHAR(255), difficulty VARCHAR(255), link VARCHAR(255))"],
-            ["problems_premium", "(title VARCHAR(255), acceptance VARCHAR(255), difficulty VARCHAR(255), link VARCHAR(255), tag VARCHAR(255))"]
+            ["problems_unique", "(title VARCHAR(255), acceptance VARCHAR(255), difficulty VARCHAR(255), link VARCHAR(255))"], 
+            ["problems_tags", "(title VARCHAR(255), acceptance VARCHAR(255), difficulty VARCHAR(255), link VARCHAR(255), tag VARCHAR(255))"],
+            ["problems_premium", "(title VARCHAR(255))"]
         ];
         var query;
-        for(var i = 0; i < table_names.length; i++){
+        for(var i = 0; i < tables.length; i++){
             var [tableName, schema] = tables[i];
             query = "DROP TABLE IF EXISTS " + tableName;
             this.conn.query(query);
-            query = "CREATE TABLE IF NOT EXISTS " + tableName + " " + schema;
+            query = "CREATE TABLE IF NOT EXISTS " + tableName + schema;
             this.conn.query(query);
         }
-        console.log(query);
-        this.conn.query(query);
 
     }
 }
