@@ -42,6 +42,6 @@ Scraping problems for tag: dynamic-programming
 ```
 
 [DEMO](https://patrickfenn.github.io/RandomLC/)
-* Due to a bug with express.js, https, and CORS. Mixed content must be enabled. To do so, click on the lock on the address bar and disable protection. 
+* Due to a bug with express.js, https, and CORS. Mixed content must be enabled since cors and https do not play nicely. To do so, click on the lock on the address bar and disable protection. 
 
 https://stackoverflow.com/questions/74555948/https-server-cors-issue?newreg=59796574c4014da3a60621cb5cdfb05e
